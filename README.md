@@ -22,7 +22,7 @@ Requirements:
 Wherever you want to display the version, just add the snippet below in your content and the version will be rendered when the Jekyll project is built.
 
 ```
-{% project-version %}
+{% project_version %}
 ```
 
 This will simply output the version number, you can then apply your own styling as necessary. Or even just `html` comment it out if you don't want it visible.
