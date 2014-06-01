@@ -2,12 +2,16 @@
 
 ### Description
 
-A Liquid tag plugin for [Jekyll](http://jekyllrb.com/) that renders a version identifier for your Jekyll site, sourced from the `git` repository containing your code. Great if you want to display the version of your project on your site dynamically each time your site is built.
+A Liquid tag plugin for [Jekyll](http://jekyllrb.com/) that renders a version identifier for your Jekyll site sourced from the `git` repository containing your code. Great if you want to display the version of your project on your site dynamically each time your site is built.
 
-Identify and highlight the build of your project.
+Identify and highlight the build of your project by calling the tag from your Jekyll project.
 
 ```html
 <p class="small">Build: 3.0.0-5-ga189420</p>
+```
+
+```ruby
+<p class="small">Build: {% project_version %}</p>
 ```
 
 ### Features
@@ -22,21 +26,21 @@ Stand back, hold onto your hats... the **jekyll-version-plugin** has 1x feature.
 
 ### Usage
 
-Wherever you want to display the version, just add the snippet below in your content and the version will be rendered when the Jekyll project is built.
-
-```
-{% project_version %}
-```
-
-This will simply output the version number, you can then apply your own styling as necessary. Or just `html` comment it out if you don't want it visible.
-
 Just follow Jekyll's instructions for getting a plugin into a project;
 
 ```bash
 # Create the _plugins dir if needed and download project_version_tag plugin
-$ mkdir _plugins && cd _plugins
+$ mkdir -p _plugins && cd _plugins
 $ wget https://raw.githubusercontent.com/rob-murray/jekyll-version-plugin/master/lib/project_version_tag.rb
 ```
+
+Wherever you want to display the version, just add the snippet below in your content and the version will be rendered when the Jekyll project is built.
+
+```ruby
+{% project_version %}
+```
+
+This will simply output the version number, you can then apply your own styling as necessary. Or just `html` comment it out if you don't want it visible.
 
 ### Output
 
