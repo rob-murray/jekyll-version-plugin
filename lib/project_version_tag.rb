@@ -15,19 +15,10 @@ module Jekyll
 
     def current_version
       @_current_version ||= begin
-        version = git_describe
+        # attempt to find the latest tag, falling back to last commit
+        version = git_describe || parse_head
 
-        if version
-          version
-        else
-          version = parse_head
-
-          if version
-            version
-          else
-            UNABLE_TO_PARSE_MESSAGE
-          end
-        end
+        version || UNABLE_TO_PARSE_MESSAGE
       end
     end
 
