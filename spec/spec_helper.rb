@@ -3,7 +3,7 @@ module Liquid
   class Tag
   end
   class Template
-    def self.register_tag(foo,bar)
+    def self.register_tag(foo, bar)
     end
   end
 end
