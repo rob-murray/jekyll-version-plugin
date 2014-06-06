@@ -5,7 +5,7 @@ module Jekyll
 
     def render(context)
       if git_repo?
-        current_version.gsub("\n",'')
+        current_version.chomp
       else
         NO_GIT_MESSAGE
       end
