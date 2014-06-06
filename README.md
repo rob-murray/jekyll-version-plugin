@@ -1,5 +1,7 @@
 ## jekyll-version-plugin
 
+[![Build Status](https://travis-ci.org/rob-murray/jekyll-version-plugin.svg)](https://travis-ci.org/rob-murray/jekyll-version-plugin)
+
 ### Description
 
 A Liquid tag plugin for [Jekyll](http://jekyllrb.com/) that renders a version identifier for your Jekyll site sourced from the `git` repository containing your code. Great if you want to display the version of your project on your site dynamically each time your site is built.
@@ -7,11 +9,11 @@ A Liquid tag plugin for [Jekyll](http://jekyllrb.com/) that renders a version id
 Identify and highlight the build of your project by calling the tag from your Jekyll project.
 
 ```html
-<p class="small">Build: 3.0.0-5-ga189420</p>
+<p>Build: 3.0.0-5-ga189420</p>
 ```
 
 ```ruby
-<p class="small">Build: {% project_version %}</p>
+<p>Build: {% project_version %}</p>
 ```
 
 ### Features
