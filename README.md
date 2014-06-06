@@ -1,6 +1,7 @@
 ## jekyll-version-plugin
 
 [![Build Status](https://travis-ci.org/rob-murray/jekyll-version-plugin.svg)](https://travis-ci.org/rob-murray/jekyll-version-plugin)
+[![Gem Version](https://badge.fury.io/rb/jekyll-version-plugin.svg)](http://badge.fury.io/rb/jekyll-version-plugin)
 
 ### Description
 
@@ -28,13 +29,27 @@ Stand back, hold onto your hats... the **jekyll-version-plugin** has 1x feature.
 
 ### Usage
 
-Just follow Jekyll's instructions for getting a plugin into a project;
+As mentioned by [Jekyll's documentation](http://jekyllrb.com/docs/plugins/#installing-a-plugin) you have two options; manually import the source file or require the plugin as a `gem`.
+
+#### Require gem
+
+Add the `jekyll-version-plugin` to your site `_config.yml` file for Jekyll to import the plugin as a gem.
+
+```ruby
+gems: [jekyll-version-plugin]
+```
+
+#### Manual import
+
+Just download the source file into your `_plugins` directory, e.g.
 
 ```bash
 # Create the _plugins dir if needed and download project_version_tag plugin
 $ mkdir -p _plugins && cd _plugins
 $ wget https://raw.githubusercontent.com/rob-murray/jekyll-version-plugin/master/lib/project_version_tag.rb
 ```
+
+#### Plugin tag usage
 
 Wherever you want to display the version, just add the snippet below in your content and the version will be rendered when the Jekyll project is built.
 
