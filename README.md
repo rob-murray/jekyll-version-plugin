@@ -63,7 +63,7 @@ This will simply output the version number, you can then apply your own styling 
 
 Happy path is a `git` repo with releases that are tagged, if this is the case then the output will be something like this;
 
-`3.0.0-5-ga189420`
+`3.0.0` or `3.0.0-5-ga189420`
 
 If the repository does not have any `tags` then it will grab the short sha of the last commit, for example;
 
