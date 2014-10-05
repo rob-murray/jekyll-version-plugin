@@ -36,7 +36,7 @@ As mentioned by [Jekyll's documentation](http://jekyllrb.com/docs/plugins/#insta
 Add the `jekyll_version_plugin` to your site `_config.yml` file for Jekyll to import the plugin as a gem.
 
 ```ruby
-gems: [jekyll_version_plugin]
+gems: ['jekyll_version_plugin']
 ```
 
 #### Manual import
