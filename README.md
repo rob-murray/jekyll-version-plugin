@@ -9,13 +9,16 @@ A Liquid tag plugin for [Jekyll](http://jekyllrb.com/) that renders a version id
 
 Identify and highlight the build of your project by calling the tag from your Jekyll project.
 
+```ruby
+# this Jekyll view code will generate ...
+<p>Build: {% project_version %}</p>
+```
+
 ```html
+<!-- this html -->
 <p>Build: 3.0.0-5-ga189420</p>
 ```
 
-```ruby
-<p>Build: {% project_version %}</p>
-```
 
 ### Features
 
