@@ -23,7 +23,7 @@ module Jekyll
     end
 
     def git_describe
-      tagged_version = %x{ git describe --tags }
+      tagged_version = %x{ git describe --tags --always }
 
       if command_succeeded?
         tagged_version
