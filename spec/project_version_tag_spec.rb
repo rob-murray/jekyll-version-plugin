@@ -1,6 +1,4 @@
-require 'spec_helper'
-
-describe Jekyll::ProjectVersionTag do
+RSpec.describe Jekyll::ProjectVersionTag do
   let(:git_test_command) { 'git rev-parse' }
   let(:git_tag_command) { ' git describe --tags --always ' }
   let(:git_last_commit_command) { ' git rev-parse --short HEAD ' }
