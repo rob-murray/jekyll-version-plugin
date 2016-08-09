@@ -1,9 +1,9 @@
 module Jekyll
   class ProjectVersionTag < Liquid::Tag
-    NO_GIT_MESSAGE = 'Oops, are you sure this is a git project?'
-    UNABLE_TO_PARSE_MESSAGE = 'Sorry, could not read project version at the moment'
+    NO_GIT_MESSAGE          = 'Oops, are you sure this is a git project?'.freeze
+    UNABLE_TO_PARSE_MESSAGE = 'Sorry, could not read the project version at the moment'.freeze
 
-    def render(context)
+    def render(_context)
       if git_repo?
         current_version.chomp
       else
@@ -23,19 +23,15 @@ module Jekyll
     end
 
     def git_describe
-      tagged_version = %x{ git describe --tags --always }
+      tagged_version = `git describe --tags --always`
 
-      if command_succeeded?
-        tagged_version
-      end
+      tagged_version if command_succeeded?
     end
 
     def parse_head
-      head_commitish = %x{ git rev-parse --short HEAD }
+      head_commitish = `git rev-parse --short HEAD`
 
-      if command_succeeded?
-        head_commitish
-      end
+      head_commitish if command_succeeded?
     end
 
     def command_succeeded?
