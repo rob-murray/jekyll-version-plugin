@@ -9,13 +9,15 @@ A Liquid tag plugin for [Jekyll](http://jekyllrb.com/) that renders a version id
 
 Identify and highlight the build of your project by calling the tag from your Jekyll project.
 
+##### This Jekyll view code will generate ...
+
 ```ruby
-# this Jekyll view code will generate ...
 <p>Build: {% project_version %}</p>
 ```
 
+##### This html
+
 ```html
-<!-- this html -->
 <p>Build: 3.0.0-5-ga189420</p>
 ```
 
@@ -26,13 +28,16 @@ Stand back, hold onto your hats... the **jekyll-version-plugin** has 1x feature.
 
 * Render a version of your project via `git`.
 
+
 ### Requirements
 
 * Your project is version controlled in `git`.
 
+
 ### Usage
 
 As mentioned by [Jekyll's documentation](http://jekyllrb.com/docs/plugins/#installing-a-plugin) you have two options; manually import the source file or require the plugin as a `gem`.
+
 
 #### Require gem
 
@@ -42,6 +47,7 @@ Add the `jekyll_version_plugin` to your site `_config.yml` file for Jekyll to im
 gems: ['jekyll_version_plugin']
 ```
 
+
 #### Manual import
 
 Just download the source file into your `_plugins` directory, e.g.
@@ -49,8 +55,9 @@ Just download the source file into your `_plugins` directory, e.g.
 ```bash
 # Create the _plugins dir if needed and download project_version_tag plugin
 $ mkdir -p _plugins && cd _plugins
-$ wget https://raw.githubusercontent.com/rob-murray/jekyll-version-plugin/master/lib/project_version_tag.rb
+$ wget https://raw.githubusercontent.com/rob-murray/jekyll-version-plugin/master/lib/jekyll_version_plugin.rb
 ```
+
 
 #### Plugin tag usage
 
@@ -61,6 +68,7 @@ Wherever you want to display the version, just add the snippet below in your con
 ```
 
 This will simply output the version number, you can then apply your own styling as necessary. Or just `html` comment it out if you don't want it visible.
+
 
 ### Output
 
@@ -85,9 +93,11 @@ The plugin just calls `git describe` - For more information see [git documentati
 $ git describe --tags --long
 ```
 
+
 ### Contributions
 
 Please use the GitHub pull-request mechanism to submit contributions.
+
 
 ### License
 

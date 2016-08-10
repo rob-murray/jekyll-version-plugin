@@ -1,10 +1,10 @@
-RSpec.describe Jekyll::ProjectVersionTag do
+RSpec.describe Jekyll::VersionPlugin::Tag do
   GIT_TEST_COMMAND          = 'git rev-parse'
   GIT_TAG_COMMAND           = 'git describe --tags --always'
   GIT_LAST_COMMIT_COMMAND   = 'git rev-parse --short HEAD'
   let(:context) { double.as_null_object }
 
-  subject { Jekyll::ProjectVersionTag.new }
+  subject { described_class.new }
 
   before do
     allow(subject).to receive(:system).and_return(true)
