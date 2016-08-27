@@ -1,6 +1,7 @@
 # Hack ...or stub Liquid classes and methods used in plugin
 module Liquid
   class Tag
+    def initialize(*_);end
   end
 
   class Template
