@@ -65,6 +65,15 @@ Wherever you want to display the version, just add the snippet below in your con
 
 ```ruby
 {% project_version %}
+
+
+{% project_version tags long %}
+
+{% project_version tags short %}
+
+{% project_version head long %}
+
+{% project_version head short %}
 ```
 
 This will simply output the version number, you can then apply your own styling as necessary. Or just `html` comment it out if you don't want it visible.

@@ -7,6 +7,13 @@ module Jekyll
       NO_GIT_MESSAGE          = 'Oops, are you sure this is a git project?'.freeze
       UNABLE_TO_PARSE_MESSAGE = 'Sorry, could not read the project version at the moment'.freeze
 
+      def initialize(_name, params, _tokens)
+        super
+        args      = params.split(/\s+/).map(&:strip)
+        # @api_type = args.shift
+        @params   = [:type, :format].zip(args).to_h
+      end
+
       def render(_context)
         if git_repo?
           current_version.chomp
@@ -18,22 +25,41 @@ module Jekyll
       private
 
       def current_version
+        #puts @params
         @_current_version ||= begin
-          # attempt to find the latest tag, falling back to last commit
-          version = git_describe || parse_head
+          version = case @params.fetch(:type, "tags")
+          when "tags"
+            git_describe || parse_head
+          when "head"
+            parse_head
+          else
+            parse_head
+          end
 
           version || UNABLE_TO_PARSE_MESSAGE
         end
       end
 
       def git_describe
-        tagged_version = `git describe --tags --always`
+        if @params.fetch(:format, "short") == "long"
+          tagged_version = `git describe --tags --always --long`
+          #puts "1"
+        else
+          tagged_version = `git describe --tags --always`
+          #puts "2"
+        end
 
         tagged_version if command_succeeded?
       end
 
       def parse_head
-        head_commitish = `git rev-parse --short HEAD`
+        if @params.fetch(:format, "short") == "long"
+          head_commitish = `git rev-parse HEAD`
+          #puts "3"
+        else
+          head_commitish = `git rev-parse --short HEAD`
+          #puts "4"
+        end
 
         head_commitish if command_succeeded?
       end
