@@ -5,7 +5,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name                   = "jekyll_version_plugin"
-  spec.version                = "1.0.2"
+  spec.version                = "2.0.0"
   spec.authors                = ["Rob Murray"]
   spec.email                  = ["robmurray17@gmail.com"]
   spec.summary                = "A Liquid tag plugin for Jekyll that renders a version identifier for your Jekyll site, sourced from the git repository."

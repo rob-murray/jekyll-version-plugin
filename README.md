@@ -72,7 +72,7 @@ The plugin can be called anywhere in your template with or without parameters;
 {% project_version type format %}
 ```
 
-* **type** is what to use for versioning, either `tag` or `commit` - default of `tag`
+* **type** is what to use for versioning, either `tag` or `commit` - defaults to `tag`
 * **format** is the format of the output, `short` or `long` - defaults to `short`
 
 Wherever you want to display the version, just add one of the snippets below in your content and the version will be rendered when the Jekyll project is built.
