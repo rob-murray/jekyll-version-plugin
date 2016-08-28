@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Basic integration example - run code against a dummy repo
 #
 # * Requires git configured on the machine.
@@ -5,10 +6,10 @@
 # Create a tmp dir and create a dummy git repo, run code at various stages,
 # eg no commits, a commit, a tag, etc.
 #
-$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
-require_relative './support/jekyll_template'
-require 'jekyll_version_plugin'
-require 'tmpdir'
+$LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
+require_relative "./support/jekyll_template"
+require "jekyll_version_plugin"
+require "tmpdir"
 
 RUN_OPTIONS = [
   "",

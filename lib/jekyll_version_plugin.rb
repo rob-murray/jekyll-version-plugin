@@ -18,7 +18,7 @@ module Jekyll
         end
 
         def command_succeeded?
-          !$CHILD_STATUS.nil? && $CHILD_STATUS.success?
+          !$?.nil? && $?.success?
         end
 
         def git_repo?
