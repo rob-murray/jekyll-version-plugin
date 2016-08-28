@@ -29,7 +29,8 @@ module Jekyll
       def initialize(_name, params, _tokens)
         super
         args    = params.split(/\s+/).map(&:strip)
-        @params = [:type, :format].zip(args).to_h
+        # TODO: When min Ruby version is >=2.0 just use `to_h`
+        @params = Hash[[:type, :format].zip(args)]
       end
 
       def render(_context)
