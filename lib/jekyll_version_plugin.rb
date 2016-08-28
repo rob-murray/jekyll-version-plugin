@@ -51,10 +51,10 @@ module Jekyll
 
       def current_version
         @_current_version ||= begin
-          version = case params.fetch(:type, "tags")
-                    when "tags", OPTION_NOT_SPECIFIED
+          version = case params.fetch(:type, "tag")
+                    when "tag", OPTION_NOT_SPECIFIED
                       git_describe || parse_head
-                    when "head"
+                    when "commit"
                       parse_head
                     end
 

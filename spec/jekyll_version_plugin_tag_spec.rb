@@ -6,8 +6,8 @@ RSpec.describe Jekyll::VersionPlugin::Tag do
 
   GIT_TAG_LONG_COMMAND    = "git describe --tags --always --long"
   GIT_TAG_SHORT_COMMAND   = "git describe --tags --always"
-  GIT_HEAD_LONG_COMMAND   = "git rev-parse HEAD"
-  GIT_HEAD_SHORT_COMMAND  = "git rev-parse --short HEAD"
+  GIT_COMMIT_LONG_COMMAND   = "git rev-parse HEAD"
+  GIT_COMMIT_SHORT_COMMAND  = "git rev-parse --short HEAD"
   let(:context) { double.as_null_object }
 
   subject { described_class.new(nil, options, nil) }
@@ -37,7 +37,7 @@ RSpec.describe Jekyll::VersionPlugin::Tag do
 
     context "with tag type" do
       context "with no format" do
-        let(:options) { "tags" }
+        let(:options) { "tag" }
 
         it "use default command" do
           allow_call_to_succeed do
@@ -49,7 +49,7 @@ RSpec.describe Jekyll::VersionPlugin::Tag do
       end
 
       context "with long format" do
-        let(:options) { "tags long" }
+        let(:options) { "tag long" }
 
         it "use correct command" do
           allow_call_to_succeed do
@@ -61,7 +61,7 @@ RSpec.describe Jekyll::VersionPlugin::Tag do
       end
 
       context "with short format" do
-        let(:options) { "tags short" }
+        let(:options) { "tag short" }
 
         it "use correct command" do
           allow_call_to_succeed do
@@ -73,7 +73,7 @@ RSpec.describe Jekyll::VersionPlugin::Tag do
       end
 
       context "with no tag" do
-        let(:options) { "tags short" }
+        let(:options) { "tag short" }
 
         it "falls back to head command" do
           do_not_allow_call_to_succeed do
@@ -81,7 +81,7 @@ RSpec.describe Jekyll::VersionPlugin::Tag do
           end
 
           allow_call_to_succeed do
-            allow(system_double).to receive(:run).with(GIT_HEAD_SHORT_COMMAND).and_return("hash")
+            allow(system_double).to receive(:run).with(GIT_COMMIT_SHORT_COMMAND).and_return("hash")
           end
 
           subject.render(context)
@@ -89,13 +89,13 @@ RSpec.describe Jekyll::VersionPlugin::Tag do
       end
     end
 
-    context "with head type" do
+    context "with commit type" do
       context "with no format" do
-        let(:options) { "head" }
+        let(:options) { "commit" }
 
         it "use default command" do
           allow_call_to_succeed do
-            expect(system_double).to receive(:run).with(GIT_HEAD_SHORT_COMMAND).and_return("hash")
+            expect(system_double).to receive(:run).with(GIT_COMMIT_SHORT_COMMAND).and_return("hash")
           end
 
           subject.render(context)
@@ -103,11 +103,11 @@ RSpec.describe Jekyll::VersionPlugin::Tag do
       end
 
       context "with long format" do
-        let(:options) { "head short" }
+        let(:options) { "commit short" }
 
         it "use correct command" do
           allow_call_to_succeed do
-            expect(system_double).to receive(:run).with(GIT_HEAD_SHORT_COMMAND).and_return("hash")
+            expect(system_double).to receive(:run).with(GIT_COMMIT_SHORT_COMMAND).and_return("hash")
           end
 
           subject.render(context)
@@ -115,11 +115,11 @@ RSpec.describe Jekyll::VersionPlugin::Tag do
       end
 
       context "with short format" do
-        let(:options) { "head long" }
+        let(:options) { "commit long" }
 
         it "use correct command" do
           allow_call_to_succeed do
-            expect(system_double).to receive(:run).with(GIT_HEAD_LONG_COMMAND).and_return("hash")
+            expect(system_double).to receive(:run).with(GIT_COMMIT_LONG_COMMAND).and_return("hash")
           end
 
           subject.render(context)
@@ -156,11 +156,11 @@ RSpec.describe Jekyll::VersionPlugin::Tag do
       end
     end
 
-    context "with tags type" do
+    context "with tag type" do
       before do
         with_git_repo
       end
-      let(:options) { "tags" }
+      let(:options) { "tag" }
 
       it "returns response" do
         allow_call_to_succeed do
@@ -171,18 +171,18 @@ RSpec.describe Jekyll::VersionPlugin::Tag do
       end
     end
 
-    context "with head type" do
+    context "with commit type" do
       before do
         with_git_repo
       end
-      let(:options) { "head" }
+      let(:options) { "commit" }
 
       it "returns response" do
         allow_call_to_succeed do
-          allow(system_double).to receive(:run).with(GIT_HEAD_SHORT_COMMAND).and_return("head-hash")
+          allow(system_double).to receive(:run).with(GIT_COMMIT_SHORT_COMMAND).and_return("commit-hash")
         end
 
-        expect(subject.render(context)).to eq "head-hash"
+        expect(subject.render(context)).to eq "commit-hash"
       end
     end
 

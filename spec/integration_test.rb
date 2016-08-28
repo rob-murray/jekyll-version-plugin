@@ -13,10 +13,10 @@ require "tmpdir"
 
 RUN_OPTIONS = [
   "",
-  "tags long",
-  "tags short",
-  "head long",
-  "head short"
+  "tag short",
+  "tag long",
+  "commit short",
+  "commit long"
 ].freeze
 
 def run_code_with_options(message)
