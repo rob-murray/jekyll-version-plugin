@@ -1,7 +1,8 @@
-$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
-require 'support/jekyll_template'
-require 'jekyll_version_plugin'
-
+# frozen_string_literal: true
+$LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
+require "support/jekyll_template"
+require "jekyll_version_plugin"
+require "byebug"
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
@@ -15,9 +16,7 @@ RSpec.configure do |config|
   config.filter_run_when_matching :focus
   config.disable_monkey_patching!
   config.warnings = true
-  if config.files_to_run.one?
-    config.default_formatter = 'doc'
-  end
+  config.default_formatter = "doc" if config.files_to_run.one?
   config.order = :random
   Kernel.srand config.seed
 end
