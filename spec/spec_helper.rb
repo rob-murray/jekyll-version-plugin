@@ -2,7 +2,7 @@
 $LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
 require "support/jekyll_template"
 require "jekyll_version_plugin"
-require "byebug"
+
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
