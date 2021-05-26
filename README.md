@@ -1,6 +1,5 @@
 ## jekyll-version-plugin
 
-[![Build Status](https://travis-ci.org/rob-murray/jekyll-version-plugin.svg)](https://travis-ci.org/rob-murray/jekyll-version-plugin)
 [![Gem Version](https://badge.fury.io/rb/jekyll_version_plugin.svg)](http://badge.fury.io/rb/jekyll_version_plugin)
 
 ### Description
